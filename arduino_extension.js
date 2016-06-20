@@ -507,8 +507,11 @@
     device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 });
     console.log('Attempting connection with ' + device.id);
     device.set_receive_handler(function(data) {
+      console.log('call function with ' + data);
       var inputData = new Uint8Array(data);
+      console.log(inputData);
       processInput(inputData);
+      console.log('input processing complete');
     });
 
     poller = setInterval(function() {
