@@ -507,11 +507,8 @@
     device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 });
     console.log('Attempting connection with ' + device.id);
     device.set_receive_handler(function(data) {
-      console.log('call function with ' + data);
       var inputData = new Uint8Array(data);
-      console.log(inputData);
       processInput(inputData);
-      console.log('input processing complete');
     });
 
     poller = setInterval(function() {
@@ -1066,4 +1063,8 @@
 
   ScratchExtensions.register('Arduino', descriptor, ext, {type:'serial'});
   ScratchExtensions.register('RFDuino', descriptor, ext, {type:'serial'});
+  
+  var hid_info = {type: 'Unknown board', vendor: 0x0403, product: 0x6015};
+  ScratchExtensions.register('Example', descriptor, ext, hid_info);
+  
 })({});
