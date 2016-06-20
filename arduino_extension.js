@@ -1062,5 +1062,5 @@
   };
 
   ScratchExtensions.register('Arduino', descriptor, ext, {type:'serial'});
-
+  ScratchExtensions.register('RFDuino', descriptor, ext, {type:'serial'});
 })({});
